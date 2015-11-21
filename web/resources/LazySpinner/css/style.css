@@ -1,0 +1,4 @@
+
+.container > p, .ui-content > p, #ajax > p {
+    text-align: center;
+}
