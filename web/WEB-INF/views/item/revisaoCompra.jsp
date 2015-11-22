@@ -31,6 +31,7 @@
     <div class="page-header">
         <h1>Meu carrinho: revisão</h1>
         <p class="lead">Confirme para finalizar sua compra.</p>
+        <p class="lead">${msg}</p>
     </div>
     <a href="principal">
         <img data-src='<c:url value="/resources/images/voltar.png"/>'  width="24" height="24"><strong>Continuar comprando</strong>
@@ -100,12 +101,12 @@
 </table>
 <%} else {%>
 <div class="page-header">
+    <%if(request.getAttribute("msg")!=null){%>
+    <p class="lead">${msg.getTexto()}</p>
+    <%}else{%>
     <p class="lead">Seu carrinho está vazio.</p>
+    <%}%>
 </div>
 <%}%>
-</div>
 
-
-
-</body>
-</html>
+<c:import url="../rodape.jsp"/>

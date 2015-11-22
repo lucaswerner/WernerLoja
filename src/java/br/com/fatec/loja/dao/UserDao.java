@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.sql.DataSource;
@@ -57,24 +58,29 @@ public class UserDao {
         }
     }
 
-    public void registra(User usuario) {
+    public User registra(User usuario) {
         String sql = "insert into usuarios" + "(login,senha,nome)" + " values (?,?,?)";
         try {
 
             if (validaUser(usuario) == null) {
-                PreparedStatement stmt = connection.prepareStatement(sql);
+                PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
                 stmt.setString(1, usuario.getLogin());
                 stmt.setString(2, usuario.getSenha());
                 stmt.setString(3, usuario.getNome());
 
                 stmt.execute();
+                ResultSet rs = stmt.getGeneratedKeys();
+                rs.next();
+                usuario.setId(rs.getLong(1));
                 stmt.close();
+                return usuario;
             }
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return null;
     }
 
     public boolean existeUser(User usuario) {

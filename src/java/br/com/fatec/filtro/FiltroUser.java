@@ -56,7 +56,7 @@ public class FiltroUser implements Filter {
        String uri = request.getRequestURI();
             Mensagem msg = new Mensagem();
         request.setAttribute("pagina", request.getRequestURI().substring(request.getContextPath().length()));
-        if((uri.endsWith("itemAltera") || uri.endsWith("itemForm") || uri.endsWith("listaItens") || uri.endsWith("removeItem") || uri.endsWith("finalizarCompra")) && (request.getSession().getAttribute("user")==null)){
+        if((uri.endsWith("itemAltera") || uri.endsWith("itemForm") || uri.endsWith("listaItens") || uri.endsWith("removeItem") || uri.endsWith("finalizarCompra") || uri.endsWith("historicoCompras")) && (request.getSession().getAttribute("user")==null)){
             
             msg.setTexto("Para esta funcionalidade, logue no sistema ou cadastre-se");
             msg.setTipo("warning");

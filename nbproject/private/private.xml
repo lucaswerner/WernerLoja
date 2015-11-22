@@ -2,6 +2,43 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/web/WEB-INF/views/item/revisaoCompra.jsp</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/src/java/br/com/fatec/loja/teste/TestaAdiciona.java</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/src/java/br/com/fatec/loja/controller/UserController.java</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/web/WEB-INF/views/LoginSuccess.jsp</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/web/WEB-INF/views/item/principal.jsp</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/web/WEB-INF/views/item/itemAltera.jsp</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/src/java/br/com/fatec/loja/controller/CarrinhoController.java</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/src/java/br/com/fatec/loja/teste/testedatahora.java</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/src/java/br/com/fatec/loja/dao/UserDao.java</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/src/java/br/com/fatec/loja/dao/ItemDao.java</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/src/java/br/com/fatec/loja/controller/ContatoController.java</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/src/java/br/com/fatec/loja/controller/ItemController.java</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/web/WEB-INF/views/rodape.jsp</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/src/java/br/com/fatec/loja/dao/CarrinhoDao.java</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/src/java/br/com/fatec/loja/modelo/Carrinho.java</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/src/java/br/com/fatec/loja/ConnectionFactory.java</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/web/WEB-INF/views/item/lista.jsp</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/web/WEB-INF/views/item/produto.jsp</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/web/WEB-INF/views/item/itemForm.jsp</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/src/java/br/com/fatec/loja/dao/ContatoDao.java</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/web/WEB-INF/views/LoginForm.jsp</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/web/WEB-INF/views/rodape2.jsp</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/src/java/br/com/fatec/filtro/FiltroUser.java</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/src/java/br/com/fatec/loja/TestaConexao.java</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/src/java/br/com/fatec/loja/teste/mail2.java</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/src/java/br/com/fatec/loja/teste/Mail.java</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/src/java/br/com/fatec/loja/teste/testeUser.java</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/web/WEB-INF/views/user/historicoCompras.jsp</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/web/WEB-INF/views/cabecalho.jsp</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/src/java/br/com/fatec/loja/Email.java</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/web/WEB-INF/spring-context.xml</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/src/java/br/com/fatec/loja/teste/testeCarrinho.java</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/web/WEB-INF/views/menuLateral.jsp</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/web/WEB-INF/views/user/login.jsp</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/web/WEB-INF/views/menu.jsp</file>
+            <file>file:/C:/Users/Lucas/Documents/NetBeansProjects/WernerLoja/src/java/br/com/fatec/loja/teste/testaItem.java</file>
+        </group>
     </open-files>
 </project-private>

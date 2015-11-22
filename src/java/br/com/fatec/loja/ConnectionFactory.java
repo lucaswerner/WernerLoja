@@ -19,7 +19,7 @@ public class ConnectionFactory {
             Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-            String url = "jdbc:mysql://localhost:3306/testebd";
+            String url = "jdbc:mysql://localhost:3306/wernerloja";
             String usuario = "root";
             String senha = "senha";
             try{

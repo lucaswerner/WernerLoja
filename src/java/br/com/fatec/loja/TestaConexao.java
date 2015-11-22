@@ -20,8 +20,8 @@ public class TestaConexao {
      */
     public static void main(String[] args) throws SQLException {
         Connection con = new ConnectionFactory().getConnection();
-        String a = "Instrumentos";
-        String sql = "insert into categoria" + "(nome)" + " values (?)";
+        String a = "Utilidades";
+        String sql = "insert into categoria" + "(nome_cat)" + " values (?)";
         try{
             
            

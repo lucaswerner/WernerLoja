@@ -5,19 +5,22 @@
  */
 package br.com.fatec.loja.controller;
 
+import br.com.fatec.loja.Email;
 import br.com.fatec.loja.dao.CarrinhoDao;
-import br.com.fatec.loja.dao.ContatoDao;
 import br.com.fatec.loja.dao.ItemDao;
+import br.com.fatec.loja.dao.Mensagem;
 import br.com.fatec.loja.modelo.Carrinho;
 import br.com.fatec.loja.modelo.Item;
 import br.com.fatec.loja.modelo.User;
+import java.text.ParseException;
 import java.util.Date;
-import javax.servlet.ServletRequest;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -37,7 +40,7 @@ public class CarrinhoController {
     }
 
     @RequestMapping("/finalizarCompra")
-    public String finalizar(HttpSession session) {
+    public ModelAndView finalizar(HttpSession session) {
 
         User user = (User) session.getAttribute("user");
 
@@ -47,9 +50,34 @@ public class CarrinhoController {
         System.out.println(user.getId());
 
         dao.finalizarCompra(this.carrinho);
+        
+        Email email = new Email();
+            email.setDestinatario(user.getLogin());
+            email.setAssunto("WernerLoja");
+            email.setTitulo("Compra realizada com sucesso");
+            String texto="<p>Olá "+user.getLogin()+", você finalizou uma compra no meu site.</p>"
+                    + "<p>Segue abaixo o(s) produto(s) escolhido:</p>";
+            
+            String itens = "<ul>";
+            for(Item a : this.carrinho.getItens()){
+                itens += "<li>"+a.getNome()+"</li>";
+            }
+            itens +="</ul> <p>Bom, todos os produtos são ficticios, mas fico feliz que tenha usado meu site =D.</p>";
+            
+             email.setTexto(texto+itens);
+            
+            email.enviar(email);
+
+            Mensagem msg = new Mensagem();
+            msg.setTexto("Compra realizada com sucesso!!!!!11!!!1!");
+            ModelAndView mv = new ModelAndView("item/revisaoCompra");
+            mv.addObject("msg", msg);
+        
+        
         session.setAttribute("carrinho", null);
         carrinho = new Carrinho();
-        return "redirect:principal";
+        return mv;
+        
     }
 
     @RequestMapping("/adicionaItemCarrinho")
@@ -85,5 +113,32 @@ public class CarrinhoController {
         }
         return "redirect:" + epa;
     }
+    
+    @RequestMapping("/historicoCompras")
+    public ModelAndView historicoCompras(HttpSession session) throws ParseException {
+        User usuario = new User();
+        usuario = (User) session.getAttribute("user");
+        Carrinho carrito = new Carrinho();
+        carrito.setUsuarios_id(usuario.getId());
+        
+        List<Carrinho> compras;
+        compras = dao.historicoCompras(carrito);
+
+        for(Carrinho a : compras){
+            System.out.println("\nCarrinho ");
+            for(Item itens : a.getItens()){
+             System.out.println("\nItem:" + itens.getNome());
+            }
+             System.out.println("\nTotal:" + a.getTotal());
+        }
+        
+        
+        
+        ModelAndView mv = new ModelAndView("user/historicoCompras");
+        mv.addObject("compras", compras);
+        
+        return mv;
+    }
+    
 
 }

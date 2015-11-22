@@ -47,7 +47,4 @@
     </div>
 </div>
 
-</div>
-
-</body>
-</html>
+<c:import url="../rodape.jsp"/>

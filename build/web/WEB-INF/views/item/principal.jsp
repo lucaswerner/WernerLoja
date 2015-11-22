@@ -95,13 +95,10 @@
                 </c:forEach>
             </div>
         </div>
-</div>
 
 
 
-</body>
-</html>
-
+<c:import url="../rodape2.jsp"/>
 
 
 

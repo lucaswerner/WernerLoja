@@ -12,6 +12,8 @@
         <title>Werner Loja</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link rel="shortcut icon" href="<c:url value="/resources/images/iconeBrowser.png"/>">
+
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <link href="<c:url value="/resources/LazySpinner/dist/jquery.lazyloadxt.fadein.css"/>" rel="stylesheet" >
         <link href="<c:url value="/resources/LazySpinner/css/style.css"/>" rel="stylesheet" >
@@ -50,13 +52,22 @@
                     width:98%;
 
                 }
-
             </style>
 
             <script>
+
                 document.getElementById("uploadBtn").onchange = function () {
                     document.getElementById("uploadFile").value = this.value;
                 };
+
+                $(function () {
+                    $("li a").on("click", function () {
+                        $("li").find(".active").removeClass("active");
+                        $(this).parent().addClass("active");
+                    });
+
+                }
+
             </script>
 
 
@@ -95,11 +106,19 @@
                                     </li>
                                     <%}%>
                                 </ul>
-                                <form class="navbar-form navbar-left" role="search">
+                                <form action="principal" class="navbar-form navbar-left" role="search" method="post">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Search">
+                                        <% String a = (String) request.getAttribute("filtro");
+                                            if (a == null) {
+                                                a = "";
+                                            } else {
+                                                a = new String(a.getBytes("ISO8859_1"), "UTF-8");
+                                            }
+                                        %>
+                                        <input type="hidden" name="id" value="<%=request.getAttribute("id")%>" />
+                                        <input type="text"  name="filtro" class="form-control" placeholder="Buscar" value="<%=a%>">
                                     </div>
-                                    <button type="submit" class="btn btn-default">Submit</button>
+                                    <button type="submit" class="btn btn-default"> <img src='<c:url value="/resources/images/procura.png"/>' width="24" height="24"></button>
                                 </form>
 
 
@@ -119,12 +138,12 @@
                                             <span class="caret"></span>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="#">Minha conta</a></li>
-                                            <li><a href="#">Histórico compras</a></li>
+                                            <li><a href="loginForm">Minha conta</a></li>
+                                            <li><a href="historicoCompras">Histórico compras</a></li>
                                             <li role="separator" class="divider"></li>
                                             <li><form action="logout" method="POST"/>
                                                 <input type="hidden" name="pagina" value="<%=request.getAttribute("pagina")%>" />
-                                                <input type="submit" value="Sair" />
+                                                <input type="submit" class="btn btn-default" value="Sair"  style="border: none;"/>
                                                 </form>
                                             </li>
                                         </ul>

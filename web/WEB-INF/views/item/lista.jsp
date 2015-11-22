@@ -83,9 +83,4 @@
 <%}%>
 
 
-
-
-
-
-</body>
-</html>
+<c:import url="../rodape.jsp"/>

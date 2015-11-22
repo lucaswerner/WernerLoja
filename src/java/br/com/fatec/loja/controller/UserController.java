@@ -99,7 +99,7 @@ public class UserController {
             return "redirect:loginForm";
 
         } else {
-            dao.registra(usuario);
+            usuario = dao.registra(usuario);
             usuario.setSenha(null);
             session.setAttribute("user", usuario);
             return "redirect:principal";

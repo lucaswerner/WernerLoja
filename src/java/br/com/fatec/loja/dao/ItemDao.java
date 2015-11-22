@@ -2,6 +2,7 @@ package br.com.fatec.loja.dao;
 
 import br.com.fatec.loja.modelo.Item;
 import br.com.fatec.loja.modelo.User;
+import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -83,8 +84,6 @@ public class ItemDao {
             throw new RuntimeException(e);
         }
     }
-    
-    
 
     public void altera(Item i) {
         String sql = "update item set nome=?, valor=?, quant=?,"
@@ -172,12 +171,31 @@ public class ItemDao {
         }
     }
 
-    public List<Item> tudo() {
+    public List<Item> tudo(String id, String filtro) {
+        List<Item> itens = new ArrayList<Item>();
+        System.out.println("id: " + id + " filtro: " + filtro);
         try {
-            List<Item> itens = new ArrayList<Item>();
-            String sql = "select * from item";
-
-            PreparedStatement stmt = this.connection.prepareStatement(sql);
+            
+            PreparedStatement stmt;
+            
+            String sql = "select * from item WHERE nome LIKE ?";
+            if (filtro == null) {
+                    filtro = "";
+                }
+            
+            String teste = null;
+            
+            if(id==null || id.equals("null") ){
+                
+            stmt = this.connection.prepareStatement(sql);
+            stmt.setString(1, "%" + filtro + "%");
+            }else{
+                sql += " AND categoria_id=?";
+                stmt = this.connection.prepareStatement(sql);
+                stmt.setString(1, "%" + filtro + "%");
+                stmt.setInt(2, Integer.parseInt(id));
+            }
+           
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -199,14 +217,16 @@ public class ItemDao {
             throw new RuntimeException(e);
         }
     }
-    
-    public List<Item> listaCategoria(int id) {
+
+    public List<Item> listaCategoria(int id, String filtro) {
         try {
             List<Item> itens = new ArrayList<Item>();
-            String sql = "select * from item where categoria_id =(?)";
-             
+
+            String sql = "select * from item where categoria_id =(?) or nome LIKE ?";
+
             PreparedStatement stmt = this.connection.prepareStatement(sql);
             stmt.setLong(1, id);
+            stmt.setString(1, "%" + filtro + "%");
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {

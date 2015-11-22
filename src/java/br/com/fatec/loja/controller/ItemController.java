@@ -10,6 +10,7 @@ import br.com.fatec.loja.modelo.Item;
 import br.com.fatec.loja.modelo.User;
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
@@ -52,17 +53,17 @@ public class ItemController implements ServletContextAware {
     }
 
     @RequestMapping("/principal")
-    public ModelAndView principal(String id) {
-
+    public ModelAndView principal(String id, String filtro){
+        
+        System.out.println("id: "+id+ " filtro: "+filtro);
+        
         List<Item> itens;
-        if (id == null) {
-            itens = this.dao.tudo();
-        } else {
-            itens = this.dao.listaCategoria(Integer.parseInt(id));
-        }
+        itens = this.dao.tudo(id, filtro);
 
         ModelAndView mv = new ModelAndView("item/principal");
         mv.addObject("itens", itens);
+        mv.addObject("filtro", filtro);
+        mv.addObject("id", id);
         return mv;
     }
 
@@ -114,7 +115,7 @@ public class ItemController implements ServletContextAware {
         } else {
             itemForm.setImg("box");
         }
-
+        System.out.println(user.getId());
         this.dao.adiciona(itemForm, user);
 
         return "redirect:listaItens";
