@@ -41,13 +41,24 @@
             <div class="navbar-collapse collapse sidebar-navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Categorias</a></li>
-                    <li class="linkBotao"><a href="principal?id=1" class="linkCategoria">Eletrônicos</a></li>
+                    <li class="linkBotao"><a href="principal?id=1" class="linkCategoria">EletrÃ´nicos</a></li>
                     <li class="linkBotao"><a href="principal?id=2" class="linkCategoria">Utilidades</a></li>
-                    <li class="linkBotao"><a href="principal?id=3" class="linkCategoria">Têxtil</a></li>
-                    <li class="linkBotao"><a href="principal?id=4" class="linkCategoria">Decoração</a></li>
+                    <li class="linkBotao"><a href="principal?id=3" class="linkCategoria">TÃªxtil</a></li>
+                    <li class="linkBotao"><a href="principal?id=4" class="linkCategoria">DecoraÃ§Ã£o</a></li>
                     <li class="linkBotao"><a href="principal?id=5" class="linkCategoria">Instrumentos</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
     </div>
 </div>
+<script>
+$(document).ready(function(){
+   $('.linkCategoria').each(function(){
+       if("/"+$(this).attr(href) == window.location){
+           $(this).addClass("active");
+           $(this).css('background','#fff');
+       }
+   }) 
+    
+});
+</script>
